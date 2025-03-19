@@ -1,0 +1,25 @@
+RewriteEngine On
+
+# define the redirect base
+RewriteBase /public/
+
+# Redirect all requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+<FilesMatch "\.(env|htaccess|htpasswd|ini|log|sh|sql)$">
+    Order Allow,Deny
+    Deny from All
+</FilesMatch>
+
+Options -Indexes
+
+<IfModule mod_headers.c>
+    # Protection against XSS
+    Header set X-XSS-Protection "1; mode=block"
+    # Avoid the iframes loading
+    Header always append X-Frame-Options SAMEORIGIN
+    # Activate and Forcing the HTTPS (It common we force the redirection in the webserver not in the application/website)
+    # Header set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+</IfModule>

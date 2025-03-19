@@ -1,0 +1,15 @@
+{
+    "name": "allanbarcelos/basic-php-structure",
+    "autoload": {
+        "psr-4": {
+            "Allanbarcelos\\DesignWwwPublish\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Allan Barcelos",
+            "email": "allan@barcelos.dev"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,14 @@
+# Activate the rewrite module
+RewriteEngine On
+
+# redirect all requests to the folder /public
+RewriteRule ^(.*)$ public/$1 [L]
+
+# Protect sensitive files and folder 
+<FilesMatch "\.(env|htaccess|htpasswd|ini|log|sh|sql)$">
+    Order Allow,Deny
+    Deny from All
+</FilesMatch>
+
+# avoid directory list
+Options -Indexes
