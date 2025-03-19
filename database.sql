@@ -29,6 +29,8 @@ CREATE TABLE  IF NOT EXISTS  role_permissions (
 
 ALTER TABLE users ADD COLUMN role_id INT, ADD CONSTRAINT fk_user_role FOREIGN KEY (role_id) REFERENCES roles(id);
 
+ALTER TABLE users ADD COLUMN photo TEXT;
+
 -- 
 
 INSERT INTO roles (name) VALUES ('admin'), ('editor'), ('user');
