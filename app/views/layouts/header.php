@@ -15,6 +15,7 @@
                 <li><a href="/">Home</li>
                 <?php if (isset($_SESSION['user_name'])) { ?>
                 <li><a href="/user">Users</a></li>
+                <li><a href="/products">Products</a></li>
                 <?php } ?>
                 <?php if (isset($_SESSION['user_name'])) { ?>
                     <li><a href="/auth/logout">Logout</a></li>

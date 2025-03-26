@@ -1,6 +1,6 @@
 <h2>List of Users</h2>
 
-<?php if($userModel->hasPermission('create_user')): ?>
+<?php if($userModel->hasPermission($_SESSION['user_id'], 'create_user')): ?>
     <a href="/user/create">Create New User</a>
 <?php endif; ?>
 
