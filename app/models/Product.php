@@ -6,12 +6,22 @@ class Product extends Model
 
     protected $table = 'products';
 
+    protected $columns = [
+        'id' => 'INT AUTO_INCREMENT PRIMARY KEY',
+        'title' => 'VARCHAR(255) NOT NULL',
+        'description' => 'TEXT NOT NULL',
+        'brand' => 'VARCHAR(100) NOT NULL',
+        'model' => 'VARCHAR(100) NOT NULL',
+        'price' => 'DECIMAL(10,2) NOT NULL',
+        'quantity' => 'INT NOT NULL'
+    ];
 
     // $data = array()
     public function create($data)
     {
 
-        if (isset($data['title'], $data['description'], $data['brand'], $data['model'], $data['price'], $data['quantity'])) {
+        if (!isset($data['title'], $data['description'], $data['brand'], $data['model'], $data['price'], $data['quantity'])) {
+            throw new Exception("Error Processing Request", 1);
             return false;
         }
 
